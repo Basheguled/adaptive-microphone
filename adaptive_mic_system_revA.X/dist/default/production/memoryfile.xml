@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/production/adaptive_mic_system_revA.X.production.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>8192</length>
+      <used>52</used>
+      <free>8140</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>65274</length>
+      <used>4782</used>
+      <free>60492</free>
+    </memory>
+  </executable>
+</project>
