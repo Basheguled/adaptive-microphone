@@ -20,7 +20,6 @@ Command:
   -L/Applications/microchip/xc16/v1.60/bin/bin/../../support/dsPIC33F/gld \
   build/default/production/AM_Pushbutton_Main.o \
   build/default/production/AM_pushbutton_EasyDriver.o \
-  build/default/production/AM_pushbutton_LCD_Lib.o \
   build/default/production/AM_pushbutton_ASM_Lib.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp24FJ64GA002.gld.00 \
@@ -55,20 +54,26 @@ Archive member included because of file (symbol)
                               /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(crt0_standard.o) (__data_init_standard)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(crt_start_mode_normal.Leo)
                               (__crt_start_mode_normal)
+/Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(addsf3.eo)
+                              build/default/production/AM_Pushbutton_Main.o (___subsf3)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo)
                               build/default/production/AM_pushbutton_EasyDriver.o (___divsf3)
+/Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fgtge.eo)
+                              build/default/production/AM_Pushbutton_Main.o (___gtsf2)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
                               build/default/production/AM_Pushbutton_Main.o (_(float, int, long long, short, float, short, int))
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatsisf.eo)
                               build/default/production/AM_pushbutton_EasyDriver.o (___floatsisf)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fpack.eo)
-                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo) (__fpack)
+                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(addsf3.eo) (__fpack)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack.eo)
                               /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fixsfsi.eo) (__funpack)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack2.eo)
-                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo) (__funpack2)
+                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(addsf3.eo) (__funpack2)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
-                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo) (__fPropagateNaN)
+                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(addsf3.eo) (__fPropagateNaN)
+/Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fcompare.eo)
+                              /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fgtge.eo) (__fcompare)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatdisf.eo)
                               /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatsisf.eo) (___floatdisf)
 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
@@ -85,11 +90,11 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x2be           0x41d  (1053)
-.text                        0x4be               0x3ce           0x5b5  (1461)
-.dinit                       0x88c                 0x8             0xc  (12)
+.text                        0x200               0x3b4           0x58e  (1422)
+.text                        0x5b4               0x2e0           0x450  (1104)
+.dinit                       0x894                 0x8             0xc  (12)
 
-                 Total "program" memory used (bytes):          0x9de  (2526) 3%
+                 Total "program" memory used (bytes):          0x9ea  (2538) 3%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -120,72 +125,66 @@ External Symbols in Program Memory (by address):
                   0x000252                  __data_init_standard
                   0x000252                  __data_init
                   0x0002c8                  __DefaultInterrupt
-                  0x0002ce                  ___divsf3
-                  0x000352                  ___fixsfsi
-                  0x000394                  ___floatsisf
-                  0x00039a                  __fpack
-                  0x0003e6                  __funpack
-                  0x000410                  __funpack2
-                  0x000420                  __fPropagateNaN
-                  0x000432                  __fbopExit
-                  0x00043a                  __fbopReturnNaN
-                  0x000440                  ___floatdisf
-                  0x000460                  ___floatundisf
-                  0x0004be                  _lcd_cmd
-                  0x000510                  _lcd_init
-                  0x000546                  _lcd_setCursor
-                  0x000562                  _lcd_printChar
-                  0x0005b6                  _lcd_printStr
-                  0x00064c                  _dly
-                  0x00065e                  _wait_50ms
-                  0x000674                  _wait_200ms
-                  0x000698                  _setup
-                  0x0006ee                  _main
-                  0x0007c6                  _delay
-                  0x0007da                  _setResolution
-                  0x000810                  _angleToSteps
-                  0x000832                  _runCW
-                  0x000856                  _runCCW
-                  0x00087a                  _delay_100us
-                  0x000880                  _delay_1ms
-                  0x000886                  _wait_1ms
+                  0x0002ce                  ___subsf3
+                  0x0002d0                  ___addsf3
+                  0x00038a                  ___divsf3
+                  0x00040e                  ___gtsf2
+                  0x00040e                  ___gesf2
+                  0x000412                  ___fixsfsi
+                  0x000454                  ___floatsisf
+                  0x00045a                  __fpack
+                  0x0004a6                  __funpack
+                  0x0004d0                  __funpack2
+                  0x0004e0                  __fPropagateNaN
+                  0x0004f2                  __fbopExit
+                  0x0004fa                  __fbopReturnNaN
+                  0x000500                  __fcompare
+                  0x000536                  ___floatdisf
+                  0x000556                  ___floatundisf
+                  0x0005b4                  _setup
+                  0x0005e0                  _main
+                  0x0007ce                  _delay
+                  0x0007e2                  _setResolution
+                  0x000818                  _angleToSteps
+                  0x00083a                  _runCW
+                  0x00085e                  _runCCW
+                  0x000882                  _delay_100us
+                  0x000888                  _delay_1ms
+                  0x00088e                  _wait_1ms
 
 External Symbols in Program Memory (by name):
 
                   0x0002c8                  __DefaultInterrupt
-                  0x0002ce                  ___divsf3
-                  0x000352                  ___fixsfsi
-                  0x000440                  ___floatdisf
-                  0x000394                  ___floatsisf
-                  0x000460                  ___floatundisf
+                  0x0002d0                  ___addsf3
+                  0x00038a                  ___divsf3
+                  0x000412                  ___fixsfsi
+                  0x000536                  ___floatdisf
+                  0x000454                  ___floatsisf
+                  0x000556                  ___floatundisf
+                  0x00040e                  ___gesf2
+                  0x00040e                  ___gtsf2
+                  0x0002ce                  ___subsf3
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
-                  0x000420                  __fPropagateNaN
-                  0x000432                  __fbopExit
-                  0x00043a                  __fbopReturnNaN
-                  0x00039a                  __fpack
-                  0x0003e6                  __funpack
-                  0x000410                  __funpack2
+                  0x0004e0                  __fPropagateNaN
+                  0x0004f2                  __fbopExit
+                  0x0004fa                  __fbopReturnNaN
+                  0x000500                  __fcompare
+                  0x00045a                  __fpack
+                  0x0004a6                  __funpack
+                  0x0004d0                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000810                  _angleToSteps
-                  0x0007c6                  _delay
-                  0x00087a                  _delay_100us
-                  0x000880                  _delay_1ms
-                  0x00064c                  _dly
-                  0x0004be                  _lcd_cmd
-                  0x000510                  _lcd_init
-                  0x000562                  _lcd_printChar
-                  0x0005b6                  _lcd_printStr
-                  0x000546                  _lcd_setCursor
-                  0x0006ee                  _main
-                  0x000856                  _runCCW
-                  0x000832                  _runCW
-                  0x0007da                  _setResolution
-                  0x000698                  _setup
-                  0x000886                  _wait_1ms
-                  0x000674                  _wait_200ms
-                  0x00065e                  _wait_50ms
+                  0x000818                  _angleToSteps
+                  0x0007ce                  _delay
+                  0x000882                  _delay_100us
+                  0x000888                  _delay_1ms
+                  0x0005e0                  _main
+                  0x00085e                  _runCCW
+                  0x00083a                  _runCW
+                  0x0007e2                  _setResolution
+                  0x0005b4                  _setup
+                  0x00088e                  _wait_1ms
 
 Memory Configuration
 
@@ -204,7 +203,6 @@ Linker script and memory map
 
 LOAD build/default/production/AM_Pushbutton_Main.o
 LOAD build/default/production/AM_pushbutton_EasyDriver.o
-LOAD build/default/production/AM_pushbutton_LCD_Lib.o
 LOAD build/default/production/AM_pushbutton_ASM_Lib.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD pPIC24Fxxx
@@ -225,7 +223,7 @@ LOAD /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x2be
+.text             0x000200        0x3b4
  *(.init)
  .init            0x000200         0x4c /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __reset
@@ -247,35 +245,44 @@ LOAD /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libfx-elf.a
                   0x0002cc          0x2 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(crt_start_mode_normal.Leo)
                   0x0002cc                  __crt_start_mode_normal
                   0x0002cc                  __crt_start_mode
- .libm.divfs3     0x0002ce         0x84 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo)
-                  0x0002ce                  ___divsf3
- .libm.fixsfsi    0x000352         0x42 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
-                  0x000352                  _(float, int, long long, short, float, short, int)
+ .libm.subsf3     0x0002ce         0xbc /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(addsf3.eo)
+                  0x0002ce                  ___subsf3
+                  0x0002d0                  ___addsf3
+ .libm.divfs3     0x00038a         0x84 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo)
+                  0x00038a                  ___divsf3
+ .libm.gtsf2      0x00040e          0x4 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fgtge.eo)
+                  0x00040e                  ___gtsf2
+                  0x00040e                  ___gesf2
+ .libm.fixsfsi    0x000412         0x42 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
+                  0x000412                  _(float, int, long long, short, float, short, int)
  .libm.floatsisf
-                  0x000394          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatsisf.eo)
-                  0x000394                  ___floatsisf
- .libm.fpack      0x00039a         0x4c /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fpack.eo)
-                  0x00039a                  __fpack
- .libm.funpack    0x0003e6         0x2a /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack.eo)
-                  0x0003e6                  __funpack
+                  0x000454          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatsisf.eo)
+                  0x000454                  ___floatsisf
+ .libm.fpack      0x00045a         0x4c /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fpack.eo)
+                  0x00045a                  __fpack
+ .libm.funpack    0x0004a6         0x2a /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack.eo)
+                  0x0004a6                  __funpack
  .libm.funpack2
-                  0x000410         0x10 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack2.eo)
-                  0x000410                  __funpack2
+                  0x0004d0         0x10 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack2.eo)
+                  0x0004d0                  __funpack2
  .libm.fPropagateNaN
-                  0x000420         0x12 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
-                  0x000420                  __fPropagateNaN
+                  0x0004e0         0x12 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x0004e0                  __fPropagateNaN
  .libm.fbobExit
-                  0x000432          0x8 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
-                  0x000432                  __fbopExit
+                  0x0004f2          0x8 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x0004f2                  __fbopExit
  .libm.fbopReturnNaN
-                  0x00043a          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
-                  0x00043a                  __fbopReturnNaN
+                  0x0004fa          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x0004fa                  __fbopReturnNaN
+ .libm.fcompare
+                  0x000500         0x36 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fcompare.eo)
+                  0x000500                  __fcompare
  .libm.floatdisf
-                  0x000440         0x20 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatdisf.eo)
-                  0x000440                  ___floatdisf
+                  0x000536         0x20 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatdisf.eo)
+                  0x000536                  ___floatdisf
  .libm.floatundisf
-                  0x000460         0x5e /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
-                  0x000460                  ___floatundisf
+                  0x000556         0x5e /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
+                  0x000556                  ___floatundisf
 
 usercode
  *(usercode)
@@ -289,39 +296,34 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x175f
+.debug_info       0x000000        0xbcd
  *(.debug_info)
- .debug_info      0x000000        0xc48 build/default/production/AM_Pushbutton_Main.o
- .debug_info      0x000c48        0x40e build/default/production/AM_pushbutton_EasyDriver.o
- .debug_info      0x001056        0x66c build/default/production/AM_pushbutton_LCD_Lib.o
- .debug_info      0x0016c2         0x9d build/default/production/AM_pushbutton_ASM_Lib.o
+ .debug_info      0x000000        0x722 build/default/production/AM_Pushbutton_Main.o
+ .debug_info      0x000722        0x40e build/default/production/AM_pushbutton_EasyDriver.o
+ .debug_info      0x000b30         0x9d build/default/production/AM_pushbutton_ASM_Lib.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x30c
+.debug_abbrev     0x000000        0x1f7
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x120 build/default/production/AM_Pushbutton_Main.o
  .debug_abbrev    0x000120         0xc3 build/default/production/AM_pushbutton_EasyDriver.o
- .debug_abbrev    0x0001e3        0x115 build/default/production/AM_pushbutton_LCD_Lib.o
- .debug_abbrev    0x0002f8         0x14 build/default/production/AM_pushbutton_ASM_Lib.o
+ .debug_abbrev    0x0001e3         0x14 build/default/production/AM_pushbutton_ASM_Lib.o
 
-.debug_line       0x000000        0x44f
+.debug_line       0x000000        0x2db
  *(.debug_line)
- .debug_line      0x000000        0x145 build/default/production/AM_Pushbutton_Main.o
- .debug_line      0x000145        0x142 build/default/production/AM_pushbutton_EasyDriver.o
- .debug_line      0x000287        0x17c build/default/production/AM_pushbutton_LCD_Lib.o
- .debug_line      0x000403         0x4c build/default/production/AM_pushbutton_ASM_Lib.o
+ .debug_line      0x000000        0x14d build/default/production/AM_Pushbutton_Main.o
+ .debug_line      0x00014d        0x142 build/default/production/AM_pushbutton_EasyDriver.o
+ .debug_line      0x00028f         0x4c build/default/production/AM_pushbutton_ASM_Lib.o
 
-.debug_frame      0x000000        0x1c2
+.debug_frame      0x000000         0xe6
  *(.debug_frame)
- .debug_frame     0x000000         0x48 build/default/production/AM_Pushbutton_Main.o
- .debug_frame     0x000048         0x96 build/default/production/AM_pushbutton_EasyDriver.o
- .debug_frame     0x0000de         0xe4 build/default/production/AM_pushbutton_LCD_Lib.o
+ .debug_frame     0x000000         0x50 build/default/production/AM_Pushbutton_Main.o
+ .debug_frame     0x000050         0x96 build/default/production/AM_pushbutton_EasyDriver.o
 
-.debug_str        0x000000         0x77
+.debug_str        0x000000         0x31
  *(.debug_str)
- .debug_str       0x000000         0x50 build/default/production/AM_Pushbutton_Main.o
- .debug_str       0x000050          0x9 build/default/production/AM_pushbutton_EasyDriver.o
- .debug_str       0x000059         0x1e build/default/production/AM_pushbutton_LCD_Lib.o
+ .debug_str       0x000000         0x28 build/default/production/AM_Pushbutton_Main.o
+ .debug_str       0x000028          0x9 build/default/production/AM_pushbutton_EasyDriver.o
 
 .debug_loc
  *(.debug_loc)
@@ -330,28 +332,24 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0xfe
+                  0x000000         0x79
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x25 build/default/production/AM_Pushbutton_Main.o
  .debug_pubnames
                   0x000025         0x54 build/default/production/AM_pushbutton_EasyDriver.o
- .debug_pubnames
-                  0x000079         0x85 build/default/production/AM_pushbutton_LCD_Lib.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000         0x60
+.debug_aranges    0x000000         0x48
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/AM_Pushbutton_Main.o
  .debug_aranges
                   0x000018         0x18 build/default/production/AM_pushbutton_EasyDriver.o
  .debug_aranges
-                  0x000030         0x18 build/default/production/AM_pushbutton_LCD_Lib.o
- .debug_aranges
-                  0x000048         0x18 build/default/production/AM_pushbutton_ASM_Lib.o
+                  0x000030         0x18 build/default/production/AM_pushbutton_ASM_Lib.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -941,44 +939,46 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000060        0x1cf
+                  0x000048         0xd7
  .debug_pubtypes
-                  0x000060        0x117 build/default/production/AM_Pushbutton_Main.o
+                  0x000048         0x9b build/default/production/AM_Pushbutton_Main.o
  .debug_pubtypes
-                  0x000177         0x3c build/default/production/AM_pushbutton_EasyDriver.o
- .debug_pubtypes
-                  0x0001b3         0x7c build/default/production/AM_pushbutton_LCD_Lib.o
+                  0x0000e3         0x3c build/default/production/AM_pushbutton_EasyDriver.o
 
 __c30_signature
-                  0x00022f         0x54
+                  0x00011f         0x60
  __c30_signature
-                  0x00022f          0x6 build/default/production/AM_Pushbutton_Main.o
+                  0x00011f          0x6 build/default/production/AM_Pushbutton_Main.o
  __c30_signature
-                  0x000235          0x6 build/default/production/AM_pushbutton_EasyDriver.o
+                  0x000125          0x6 build/default/production/AM_pushbutton_EasyDriver.o
  __c30_signature
-                  0x00023b          0x6 build/default/production/AM_pushbutton_LCD_Lib.o
+                  0x00012b          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x000241          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(crt0_standard.o)
+                  0x000131          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x000247          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/liblega-pic30-elf.a(data_init_standard.o)
+                  0x000137          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(addsf3.eo)
  __c30_signature
-                  0x00024d          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo)
+                  0x00013d          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(divsf3.eo)
  __c30_signature
-                  0x000253          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
+                  0x000143          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fgtge.eo)
  __c30_signature
-                  0x000259          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatsisf.eo)
+                  0x000149          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
  __c30_signature
-                  0x00025f          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fpack.eo)
+                  0x00014f          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatsisf.eo)
  __c30_signature
-                  0x000265          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack.eo)
+                  0x000155          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fpack.eo)
  __c30_signature
-                  0x00026b          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack2.eo)
+                  0x00015b          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack.eo)
  __c30_signature
-                  0x000271          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x000161          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(funpack2.eo)
  __c30_signature
-                  0x000277          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatdisf.eo)
+                  0x000167          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(futil.eo)
  __c30_signature
-                  0x00027d          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
+                  0x00016d          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(fcompare.eo)
+ __c30_signature
+                  0x000173          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatdisf.eo)
+ __c30_signature
+                  0x000179          0x6 /Applications/microchip/xc16/v1.60/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
 
 .nbss               0x0800          0x4
  .nbss              0x0800          0x4 build/default/production/AM_pushbutton_EasyDriver.o
@@ -990,29 +990,20 @@ __c30_signature
 .config_IESO      0x00abfc          0x2
  .config_IESO     0x00abfc          0x2 build/default/production/AM_Pushbutton_Main.o
 
-.text             0x0004be        0x3ce
- .text            0x0004be        0x1da build/default/production/AM_pushbutton_LCD_Lib.o
-                  0x0004be                  _lcd_cmd
-                  0x000510                  _lcd_init
-                  0x000546                  _lcd_setCursor
-                  0x000562                  _lcd_printChar
-                  0x0005b6                  _lcd_printStr
-                  0x00064c                  _dly
-                  0x00065e                  _wait_50ms
-                  0x000674                  _wait_200ms
- .text            0x000698        0x12e build/default/production/AM_Pushbutton_Main.o
-                  0x000698                  _setup
-                  0x0006ee                  _main
- .text            0x0007c6         0xb4 build/default/production/AM_pushbutton_EasyDriver.o
-                  0x0007c6                  _delay
-                  0x0007da                  _setResolution
-                  0x000810                  _angleToSteps
-                  0x000832                  _runCW
-                  0x000856                  _runCCW
- .text            0x00087a         0x12 build/default/production/AM_pushbutton_ASM_Lib.o
-                  0x00087a                  _delay_100us
-                  0x000880                  _delay_1ms
-                  0x000886                  _wait_1ms
+.text             0x0005b4        0x2e0
+ .text            0x0005b4        0x21a build/default/production/AM_Pushbutton_Main.o
+                  0x0005b4                  _setup
+                  0x0005e0                  _main
+ .text            0x0007ce         0xb4 build/default/production/AM_pushbutton_EasyDriver.o
+                  0x0007ce                  _delay
+                  0x0007e2                  _setResolution
+                  0x000818                  _angleToSteps
+                  0x00083a                  _runCW
+                  0x00085e                  _runCCW
+ .text            0x000882         0x12 build/default/production/AM_pushbutton_ASM_Lib.o
+                  0x000882                  _delay_100us
+                  0x000888                  _delay_1ms
+                  0x00088e                  _wait_1ms
 
-.dinit            0x00088c          0x8
- .dinit           0x00088c          0x8 data_init
+.dinit            0x000894          0x8
+ .dinit           0x000894          0x8 data_init

@@ -23,19 +23,7 @@ extern "C" {
     double angleToSteps(double angle);
     void runCW(int steps);
     void runCCW(int steps);
-    
-// LCD Library Function Declarations
-    void lcd_cmd (char command);            
-    void lcd_init(int contrast);
-    void lcd_setCursor(char x, char y);     
-    void lcd_printChar(char Package);
-    void lcd_printStr(const char *s);
-    void dly(int dly);              
-    void wait_50ms(void);                   // Uses Timer 1
-    void wait_200ms(void);                  
-
-
-
+                    
 
 #ifdef	__cplusplus
 }
