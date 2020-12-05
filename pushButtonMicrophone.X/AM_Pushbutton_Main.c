@@ -59,29 +59,6 @@ void setup()
     //_T2IE = 1;                //enable interrupt
     _T1IF = 0;                  // Reset T1 interrupt flag
     T1CON = 0x8020;             // Timer 1 on (bit 15), 1:64 prescaler,
-       
-    /* Timer 2 Setup - For logging audio events and calculating time difference between sensors.  Period = 1ms = 0.001s */
-    T2CON |= 0x0000;            //Stop Timer, Tcy clk source, PRE 1:1
-    TMR2 = 0;                   // Initialize to zero
-    PR2 = 15999; 
-    _T2IF = 0;                  //clear interrupt flag
-    _T2IE = 1;                  //enable interrupt
-    T2CONbits.TON = 1;          // Restart 16-bit Timer2
-    
-    /*Timer 3 Setup - For Updating LCD. Period = 100ms*/
-    T3CON = 0;
-    PR3 = 6250;
-    TMR3 = 0;
-    _T3IF = 0;
-    T3CON = 0x8030;             // Timer 3 on (bit 15), 1:256 prescaler for 100ms)
-    _T3IE = 1;
-    
-    /*I2C2 setup*/
-    I2C2CONbits.I2CEN = 0;      // Good practice to disable I2C2 peripheral before changing BRG
-    I2C2BRG = 0x9D;             // Setting I2C2 baud rate generator to 100 kHz
-    I2C2CONbits.I2CEN = 1;      // Enables the I2C2 module and configures the SDA2 and SCL2 pins 
-                                // (pins 6 and 7, respectively), as serial port pins
-    IFS3bits.MI2C2IF = 0;       // Clearing I2C2 interrupt flag to be safe
     
 }
     
@@ -89,75 +66,74 @@ void setup()
 
 int main(void) {
     setup();
-    lcd_init(CONTRAST);                 // LCD initialzation
-    dly(32000);                         //~2ms required after init
     setResolution(1);
     
     
-    double numSteps;
+    double numSteps = 0;
+    double tempSteps = 0;
     double angle = 0;
     while(1) {
-        if(PORTBbits.RB0 == 1) { // 0 degrees
-       
-            // reset to 0 position
-            numSteps = angleToSteps(angle);
-            runCCW(numSteps);
-            
+        if(PORTBbits.RB0 == 1) { // 0 degrees       
+            tempSteps = numSteps;
+
             // set new position
             angle = 0;
             numSteps = angleToSteps(angle);
-            runCW(numSteps);
+            if(numSteps - tempSteps > 0)
+                runCW(numSteps - tempSteps);
+            else
+                runCCW((-1)*(numSteps - tempSteps));
         }
         
         else if(PORTBbits.RB1 == 1) { // 72 degrees
-            
-            // reset to 0 position
-            numSteps = angleToSteps(angle);
-            runCCW(numSteps);
+            tempSteps = numSteps;
             
             // set new position
             angle = 72;
             numSteps = angleToSteps(angle);
-            runCW(numSteps);
+            if(numSteps - tempSteps > 0)
+                runCW(numSteps - tempSteps);
+            else
+                runCCW((-1)*(numSteps - tempSteps));
         }
         
         else if(PORTBbits.RB4 == 1) { // 144 degrees
-            
-            // reset to 0 position
-            numSteps = angleToSteps(angle);
-            runCCW(numSteps);
+            tempSteps = numSteps;
             
             // set new position
             angle = 144;
             numSteps = angleToSteps(angle);
-            runCW(numSteps);
+            if(numSteps - tempSteps > 0)
+                runCW(numSteps - tempSteps);
+            else
+                runCCW((-1)*(numSteps - tempSteps));
         }
         
         else if(PORTBbits.RB5 == 1) { // 216 degrees
-            
-            // reset to 0 position
-            numSteps = angleToSteps(angle);
-            runCCW(numSteps);
+            tempSteps = numSteps;
             
             // set new position
             angle = 216;
             numSteps = angleToSteps(angle);
-            runCW(numSteps);
+            if(numSteps - tempSteps > 0)
+                runCW(numSteps - tempSteps);
+            else
+                runCCW((-1)*(numSteps - tempSteps));
         }
         
         else if(PORTBbits.RB6 == 1) { // 288 degrees
-            
-            // reset to 0 position
-            numSteps = angleToSteps(angle);
-            runCCW(numSteps);
+            tempSteps = numSteps;
             
             // set new position
             angle = 288;
             numSteps = angleToSteps(angle);
-            runCW(numSteps);
+           if(numSteps - tempSteps > 0)
+                runCW(numSteps - tempSteps);
+            else
+                runCCW((-1)*(numSteps - tempSteps));
         }
         
-        wait_200ms();
+        delay(500);
         PORTAbits.RA0 ^= 1;
 
         
